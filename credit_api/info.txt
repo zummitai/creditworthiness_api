@@ -2,11 +2,13 @@
 python -m venv credit_api
 
 # Activate the virtual environment
-source credit_api/bin/activate
+source credit_api/bin/activate  ## MacOS or Unix
+credit_api\Scripts\activate.bat  ## Windows
 
-http POST http://localhost:5000/predict < sample.json
-http --form POST http://localhost:5000/predict file@./sample.json
+# Install the needed requirements
+pip install -r /app/requirements.txt
 
-uvicorn main_app:app --port 5000 --reload
+# Run the API 
+uvicorn main_app:app --reload
 
 # Copy the contents of "sample.json" to test the prediction of the credit_api
